@@ -21,7 +21,7 @@ const ThreadTab = async ({ currentUserId, accountId }: Props) => {
           text={post.text}
           author={post.author}
           parentId={post.parentId}
-          children={post.children}
+          comment={post.children}
           createdAt={post.createdAt}
           targetUser={accountId}
         />

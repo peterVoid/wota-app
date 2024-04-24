@@ -16,7 +16,7 @@ interface Props {
     id: string;
   };
   parentId: string | null;
-  children:
+  comment:
     | {
         author: {
           id: string;
@@ -35,7 +35,7 @@ const PostCard = ({
   currentUserId,
   threadId,
   author,
-  children,
+  comment,
   createdAt,
   images,
   parentId,
@@ -135,9 +135,9 @@ const PostCard = ({
           </p>
           {/* SHOW COMMENT LOGO */}
 
-          {isComment && children?.length! > 0 && (
+          {isComment && comment?.length! > 0 && (
             <p className="text-subtle-medium text-gray-1">
-              {children?.length} Replies
+              {comment?.length} Replies
             </p>
           )}
         </div>

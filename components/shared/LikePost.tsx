@@ -2,10 +2,7 @@
 import { likePost } from "@/lib/actions/post.action";
 import { fetchUser } from "@/lib/actions/user.action";
 import { Heart } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useAuth } from "@clerk/nextjs";
-import { redirect, useRouter } from "next/navigation";
 
 interface Props {
   userId: string;

@@ -27,7 +27,7 @@ export default async function Home() {
                 text={data.text}
                 author={data.author}
                 parentId={data.parentId}
-                children={data.children}
+                comment={data.children}
                 createdAt={data.createdAt}
                 userId={userData?._id}
               />

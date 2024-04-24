@@ -22,7 +22,7 @@ const ThreadLike = async ({ currentUserId }: Props) => {
           text={post.text}
           author={post.author}
           parentId={post.parentId}
-          children={post.children}
+          comment={post.children}
           createdAt={post.createdAt}
           userId={userData?._id}
         />

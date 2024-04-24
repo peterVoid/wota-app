@@ -24,7 +24,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           text={result.text}
           author={result.author}
           parentId={result.parentId}
-          children={result.children}
+          comment={result.children}
           createdAt={result.createdAt}
         />
 
@@ -49,7 +49,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                   text={res.text}
                   author={res.author}
                   parentId={res.parentId}
-                  children={res.children}
+                  comment={res.children}
                   createdAt={res.createdAt}
                   isComment
                   userId={userInfo._id}

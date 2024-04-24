@@ -11,7 +11,6 @@ const Page = async () => {
   if (!userInfo.onBoarded) redirect("/onboarding");
 
   const result = await getActivity(userInfo._id);
-  console.log(result);
 
   return (
     <section>
@@ -21,7 +20,7 @@ const Page = async () => {
         {result.length > 0 ? (
           <>
             {result.map((res) => (
-              <Link href={`/post/${res.parentId}`}>
+              <Link key={res.parentId} href={`/post/${res.parentId}`}>
                 <article className="activity-card">
                   <Image
                     src={res.author.image}
