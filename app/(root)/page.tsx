@@ -2,6 +2,7 @@ import PostCard from "@/components/cards/PostCard";
 import { fetchPosts } from "@/lib/actions/post.action";
 import { fetchUser } from "@/lib/actions/user.action";
 import { currentUser } from "@clerk/nextjs";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
@@ -34,7 +35,13 @@ export default async function Home() {
             ))}
           </div>
         ) : (
-          <p>No Posts</p>
+          <p className="text-white font-semibold">
+            Be the first person to create a status
+            {" -> "}
+            <Link href="/create-thread" className="text-cyan-500">
+              Klik
+            </Link>
+          </p>
         )}
       </section>
     </>

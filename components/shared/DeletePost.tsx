@@ -1,6 +1,8 @@
 "use client";
 
+import { deletePost } from "@/lib/actions/user.action";
 import { Trash } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface Props {
   threadId: string;
@@ -9,14 +11,15 @@ interface Props {
 }
 
 const DeletePost = ({ threadId, targetUser, currentUserId }: Props) => {
-  const handleDeletePost = () => {
+  const pathname = usePathname();
+  const handleDeletePost = async () => {
     if (
       !window.confirm(
         "Do you really want to delete this post?😫 -> plzz do not do that😫😫😘😘"
       )
     )
       return;
-    console.log(threadId, currentUserId);
+    await deletePost(threadId, currentUserId, pathname);
   };
   return (
     <div

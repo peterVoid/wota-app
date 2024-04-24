@@ -218,3 +218,34 @@ export async function fetchLike(userId: string) {
     throw new Error(`Failed to get like ${error.message}`);
   }
 }
+
+export async function deletePost(
+  threadId: string,
+  currentUserId: string,
+  pathname: string
+) {
+  try {
+    connectDB();
+    const post = await Posts.findByIdAndDelete(threadId);
+    let usah = await User.findOne({ id: currentUserId });
+    const existingPost = usah.posts.includes(threadId);
+    const existingLike = usah.likes.includes(threadId);
+
+    if (existingPost) {
+      usah.posts = usah.posts.filter((id: string) => {
+        return id.toString() !== threadId.toString();
+      });
+    }
+    if (existingLike) {
+      usah.likes = usah.likes.filter((id: string) => {
+        return id.toString() !== threadId.toString();
+      });
+    }
+    await usah.save();
+
+    revalidatePath(pathname);
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error.message);
+  }
+}

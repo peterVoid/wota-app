@@ -7,7 +7,7 @@ import { profileTabs } from "@/constans";
 import { fetchUser } from "@/lib/actions/user.action";
 import { currentUser } from "@clerk/nextjs";
 import Image from "next/image";
-import { redirect } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   if (!params.id) null;

@@ -1,5 +1,4 @@
 import { formatDateString } from "@/lib/utils";
-import { Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import DeletePost from "../shared/DeletePost";
@@ -113,7 +112,7 @@ const PostCard = ({
                   className="cursor-pointer object-contain"
                 />
               </Link>
-              <Image
+              {/* <Image
                 src="/assets/repost.svg"
                 alt="Repost"
                 width={24}
@@ -126,7 +125,7 @@ const PostCard = ({
                 width={24}
                 height={24}
                 className="cursor-pointer object-contain"
-              />
+              /> */}
             </div>
           </div>
 

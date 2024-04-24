@@ -13,20 +13,28 @@ const ThreadLike = async ({ currentUserId }: Props) => {
 
   return (
     <section className="mt-9 flex flex-col gap-10">
-      {a.map((post: any) => (
-        <PostCard
-          key={post._id}
-          threadId={post._id}
-          currentUserId={user?.id!}
-          images={post.image}
-          text={post.text}
-          author={post.author}
-          parentId={post.parentId}
-          comment={post.children}
-          createdAt={post.createdAt}
-          userId={userData?._id}
-        />
-      ))}
+      {a.length === 0 ? (
+        <p className="text-white font-semibold">
+          This user has not liked post yet
+        </p>
+      ) : (
+        <>
+          {a.map((post: any) => (
+            <PostCard
+              key={post._id}
+              threadId={post._id}
+              currentUserId={user?.id!}
+              images={post.image}
+              text={post.text}
+              author={post.author}
+              parentId={post.parentId}
+              comment={post.children}
+              createdAt={post.createdAt}
+              userId={userData?._id}
+            />
+          ))}
+        </>
+      )}
     </section>
   );
 };

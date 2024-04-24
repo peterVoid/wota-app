@@ -1,8 +1,7 @@
 "use client";
-import { OrganizationSwitcher, SignedIn, SignOutButton } from "@clerk/nextjs";
+import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
-import { dark } from "@clerk/themes";
 import { useRouter } from "next/navigation";
 
 const Topbar = () => {
@@ -11,7 +10,7 @@ const Topbar = () => {
     <nav className="topbar">
       <Link href="/" className="flex items-center gap-4">
         <Image src={"/logo.svg"} alt="logo" width={30} height={30} />
-        <h1 className="head-text text-left">Wota App</h1>
+        <h1 className="head-text text-left">Threads app</h1>
       </Link>
 
       <div className="flex items-center gap-1">
