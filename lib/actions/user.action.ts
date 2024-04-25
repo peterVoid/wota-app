@@ -241,6 +241,20 @@ export async function deletePost(
         return id.toString() !== threadId.toString();
       });
     }
+
+    const parent = await Posts.find({ parentId: threadId.toString() });
+
+    for (const a of parent) {
+      const pare = await Posts.findById(a._id);
+      const childen = pare.children;
+      await Posts.findByIdAndDelete(a._id);
+      await Posts.deleteMany({ _id: { $in: childen } });
+      // for (const b of childen) {
+      //   const pares = await Posts.findById(b._id);
+      //   await Posts.findByIdAndDelete(b._id);
+      // }
+    }
+
     await usah.save();
 
     revalidatePath(pathname);

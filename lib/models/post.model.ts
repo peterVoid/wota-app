@@ -9,6 +9,7 @@ const postSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
+  headParent: String,
   parentId: String,
   children: [
     {

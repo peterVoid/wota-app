@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { addComment } from "@/lib/actions/post.action";
+import { useEffect, useState } from "react";
+import useUser from "@/lib/hooks/useUser";
 
 interface Props {
   headPost: string;
